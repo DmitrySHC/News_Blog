@@ -11,3 +11,6 @@ class News(models.Model):
     # all photos will be saved in dir 'photos/'
     # and subdirs consonant with the year, month and day
     is_published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
