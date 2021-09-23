@@ -19,7 +19,7 @@ class Questions(models.Model):
 
 
 class Choice(models.Model):
-    """ What is question???"""
+    """ question is the identification of the related Question objects"""
     question = models.ForeignKey(
         Questions,
         on_delete=models.CASCADE,
