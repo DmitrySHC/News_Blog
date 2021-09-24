@@ -14,6 +14,8 @@ class NewsAdmin(admin.ModelAdmin):
     )
     list_display_links = ('id', 'title')
     search_fields = ('title', 'content')
+    list_editable = ('is_published',)
+    list_filter = ('category', 'is_published')
 
 
 class CategoryAdmin(admin.ModelAdmin):
