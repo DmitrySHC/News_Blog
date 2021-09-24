@@ -7,7 +7,7 @@ class News(models.Model):
     # blank mean that field can be ''
     created_at = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Обновлено', auto_now=True)
-    photo = models.ImageField(verbose_name='Фото', upload_to='photos/%Y/%m/%d')
+    photo = models.ImageField(verbose_name='Фото', upload_to='photos/%Y/%m/%d', blank=True)
     # all photos will be saved in dir 'photos/'
     # and subdirs consonant with the year, month and day
     is_published = models.BooleanField(verbose_name='Новость опубликована', default=True)
