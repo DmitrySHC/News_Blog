@@ -11,7 +11,11 @@ class News(models.Model):
     # all photos will be saved in dir 'photos/'
     # and subdirs consonant with the year, month and day
     is_published = models.BooleanField(verbose_name='Новость опубликована', default=True)
-    category = models.ForeignKey(to='Category', on_delete=models.PROTECT, null=True)
+    category = models.ForeignKey(
+        verbose_name='Категория',
+        to='Category',
+        on_delete=models.PROTECT,
+        null=True)
     # null = True mean that on data base it's optional (for previously created objects)
 
     def __str__(self):
