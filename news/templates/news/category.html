@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>{{category.title}}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Добавить новость</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mb-3">
+  <h1>Категория: {{ category.title }}</h1>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="list-group">
+        {% for item in categories %}
+        <a href="/category/{{item.pk}}" class="list-group-item list-group-item-action">{{item.title}}</a>
+        {%endfor%}
+      </div>
+    </div>
+    <div class="col-md-10">
+      {% for item in news %}
+      <div class="card mb-3">
+        <div class="card-header">
+          Категория: {{ item.category }}
+        </div>
+        <div class="card-body">
+          <div class="media">
+            {% if item.photo %}
+              <img src="{{ item.photo.url }}"  width="400" alt="" class="mr-3">
+            {% else %}
+              <img src="https://picsum.photos/id/1060/350/300/?blur=1" alt="" class="mr-3">
+            {% endif %}
+            <div class="media-body">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <p class="card-text">{{ item.content|truncatewords:50 }}</p>
+              <a href="#" class="btn btn-primary">Read more...</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          {{item.created_at|timesince}}
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
