@@ -1,14 +1,14 @@
 # News blog
 
 ---
-#### (under development)
+#### (under development: functions "Добавить новость" and "Read more" do not work on the main page yet.)
 It's just a news blog.
 
 ![img.png](img.png)
 
 Instructions for use:
 
-1. Create a database (blog use mysql) and specify it in a variable "DATABASES" (path: News_Blog/News_blog/settings.py):
+1. Create a database (blog use mysql) and specify it in a variable "DATABASES" (path: News_Blog/News_Blog/settings.py):
 > DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
