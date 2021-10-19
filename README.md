@@ -1,7 +1,7 @@
 # News blog
 
 ---
-#### (under development: functions "Добавить новость" and "Read more" on the main page do not work   yet)
+#### (under development: functions "Добавить новость" and "Read more" on the main page do not work yet)
 It's just a news blog.
 
 ![img.png](img.png)
@@ -26,8 +26,7 @@ Enter the database NAME, USERNAME and PASSWORD (from MySQL workbench).
 > 
 >python manage.py makemigrations
 
-
-3.Create a superuser:
+3. Create a superuser:
 > python manage.py createsuperuser
  
 Enter Username, Email address and password.
