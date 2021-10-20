@@ -76,16 +76,28 @@ WSGI_APPLICATION = 'News_Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Use without docker (comment if not using)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'db_news',
+#         'USER': 'root',
+#         'PASSWORD': 'qwerty',
+#         'HOST': 'localhost'
+#     }
+# }
+
+# Use with docker (comment if not using)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_news',
         'USER': 'root',
-        'PASSWORD': 'qwerty',
-        'HOST': 'localhost'
+        'PASSWORD': 'root',
+        'NAME': 'db_news',
+        'HOST': 'db_blog',
+        'PORT': 3306,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

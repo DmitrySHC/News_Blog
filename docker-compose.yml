@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db_blog:
+    image: mysql:8.0
+    environment:
+      - MYSQL_USER:root
+      - MYSQL_PASSWORD:root
+      - MYSQL_ROOT_PASSWORD:root
+      - MYSQL_DATABASE:db_news
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - .:/tmp/database
+    command: mysqld --init-file="/tmp/database/init.sql"
+    ports:
+      - 3307:3306
+  blog:
+    build: .
+    command: bash -c "
+      python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/usr/src/blog
+    ports:
+      - 8000:8000
+    depends_on:
+      - db_blog
+volumes:
+  mysql_data:
